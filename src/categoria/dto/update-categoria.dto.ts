@@ -1,4 +1,4 @@
-import { IsOptional, IsString, MinLength } from 'class-validator';
+import { IsInt, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class UpdateCategoriaDto {
   @IsOptional()
@@ -9,4 +9,8 @@ export class UpdateCategoriaDto {
   @IsOptional()
   @IsString()
   imagen?: string;
+
+  @IsOptional()
+  @IsInt()
+  categoriaPadreId?: number;
 }
