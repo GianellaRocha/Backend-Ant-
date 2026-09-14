@@ -11,6 +11,7 @@ import {
 import { ProductoService } from './producto.service';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
+import { Public } from '../auth/decorators/public.decorator';
 
 @Controller('productos')
 export class ProductosController {
@@ -22,11 +23,13 @@ export class ProductosController {
   }
 
   @Get()
+  @Public()
   findAll() {
     return this.productoService.findAll();
   }
 
   @Get(':id')
+  @Public()
   findOne(@Param('id', ParseIntPipe) id: string) {
     return this.productoService.findOne(+id);
   }

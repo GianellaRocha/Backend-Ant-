@@ -5,4 +5,8 @@ export class UpdateCategoriaDto {
   @IsString()
   @MinLength(1)
   nombre?: string;
+
+  @IsOptional()
+  @IsString()
+  imagen?: string;
 }

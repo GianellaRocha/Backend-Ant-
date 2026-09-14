@@ -11,6 +11,7 @@ import {
 import { FormaDePagoService } from './forma-de-pago.service';
 import { CreateFormaDePagoDto } from './dto/create-forma-de-pago.dto';
 import { UpdateFormaDePagoDto } from './dto/update-forma-de-pago.dto';
+import { Public } from '../auth/decorators/public.decorator';
 
 @Controller('formas-de-pago')
 export class FormasDePagoController {
@@ -22,11 +23,13 @@ export class FormasDePagoController {
   }
 
   @Get()
+  @Public()
   findAll() {
     return this.formaDePagoService.findAll();
   }
 
   @Get(':id')
+  @Public()
   findOne(@Param('id', ParseIntPipe) id: string) {
     return this.formaDePagoService.findOne(+id);
   }
